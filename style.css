@@ -1,0 +1,768 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f187aa;
+}
+
+
+/* =================================
+   PHOTO COLLAGE
+================================= */
+
+.collage {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -3;
+    background: #e889a9;
+}
+
+.photo {
+    position: absolute;
+    object-fit: cover;
+    border: 7px solid rgba(255, 255, 255, 0.8);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+
+/* Individual pictures */
+
+.photo1 {
+    width: 28%;
+    height: 32%;
+    top: -4%;
+    left: -3%;
+    transform: rotate(-5deg);
+}
+
+.photo2 {
+    width: 30%;
+    height: 32%;
+    top: -5%;
+    left: 25%;
+    transform: rotate(3deg);
+}
+
+.photo3 {
+    width: 30%;
+    height: 32%;
+    top: -4%;
+    right: -4%;
+    transform: rotate(-4deg);
+}
+
+.photo4 {
+    width: 30%;
+    height: 32%;
+    top: 25%;
+    left: -5%;
+    transform: rotate(4deg);
+}
+
+.photo5 {
+    width: 31%;
+    height: 33%;
+    top: 26%;
+    right: -5%;
+    transform: rotate(-3deg);
+}
+
+.photo6 {
+    width: 31%;
+    height: 34%;
+    bottom: -6%;
+    left: -4%;
+    transform: rotate(-4deg);
+}
+
+.photo7 {
+    width: 30%;
+    height: 33%;
+    bottom: -5%;
+    left: 27%;
+    transform: rotate(3deg);
+}
+
+.photo8 {
+    width: 31%;
+    height: 34%;
+    bottom: -5%;
+    right: -4%;
+    transform: rotate(-5deg);
+}
+
+
+/* =================================
+   PINK OVERLAY
+================================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: rgba(177, 67, 111, 0.55);
+    pointer-events: none;
+}
+
+
+/* =================================
+   MAIN CONTENT
+================================= */
+
+.birthday-content {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    color: white;
+    text-align: center;
+}
+
+
+h1 {
+    font-size: clamp(35px, 6vw, 75px);
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.35);
+    letter-spacing: 1px;
+}
+
+
+/* =================================
+   CAKE CONTAINER
+================================= */
+
+.cake-container {
+    position: relative;
+    width: 360px;
+    height: 350px;
+    margin-top: 10px;
+    animation: cakeAppear 2s ease forwards;
+}
+
+
+@keyframes cakeAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(100px)
+            scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =================================
+   CAKE
+================================= */
+
+.cake {
+    position: absolute;
+    left: 50%;
+    bottom: 70px;
+    transform: translateX(-50%);
+    width: 270px;
+    height: 130px;
+    border-radius: 12px;
+}
+
+
+/* Cake layers */
+
+.cake-layer {
+    position: absolute;
+    left: 0;
+    width: 270px;
+    height: 40px;
+    border-radius: 6px;
+
+    box-shadow:
+        inset 0 5px rgba(255,255,255,0.08),
+        inset 0 -5px rgba(0,0,0,0.12);
+}
+
+
+.layer-top {
+    top: 0;
+    background: #8c4f43;
+}
+
+
+.layer-middle {
+    top: 40px;
+    background: #a66354;
+}
+
+
+.layer-bottom {
+    top: 80px;
+    background: #8d5146;
+}
+
+
+/* =================================
+   ICING
+================================= */
+
+.icing {
+    position: absolute;
+    z-index: 5;
+    top: -13px;
+    left: -4px;
+    width: 278px;
+    height: 40px;
+    background: #fff9e8;
+
+    border-radius:
+        15px
+        15px
+        8px
+        8px;
+
+    box-shadow:
+        0 3px 5px rgba(0,0,0,0.15);
+}
+
+
+/* Icing drip left */
+
+.icing::before {
+    content: "";
+    position: absolute;
+    left: 38px;
+    top: 15px;
+    width: 15px;
+    height: 55px;
+    background: #fff9e8;
+
+    border-radius:
+        0
+        0
+        10px
+        10px;
+}
+
+
+/* Icing drip right */
+
+.icing::after {
+    content: "";
+    position: absolute;
+    right: 42px;
+    top: 15px;
+    width: 16px;
+    height: 45px;
+    background: #fff9e8;
+
+    border-radius:
+        0
+        0
+        10px
+        10px;
+}
+
+
+/* Center drip */
+
+.cake::before {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    left: 125px;
+    top: -10px;
+    width: 16px;
+    height: 38px;
+    background: #fff9e8;
+
+    border-radius:
+        0
+        0
+        10px
+        10px;
+}
+
+
+/* =================================
+   PLATE
+================================= */
+
+.plate {
+    position: absolute;
+    left: 50%;
+    bottom: 48px;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 9px;
+    background: white;
+    border-radius: 50%;
+
+    box-shadow:
+        0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+/* =================================
+   CANDLE
+================================= */
+
+.candle {
+    position: absolute;
+    z-index: 20;
+    left: 50%;
+    top: 55px;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 70px;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #ffffff 0px,
+            #ffffff 9px,
+            #e8e8e8 9px,
+            #e8e8e8 14px
+        );
+
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+/* =================================
+   FLAME
+================================= */
+
+.flame {
+    position: absolute;
+    left: 50%;
+    top: -31px;
+
+    transform:
+        translateX(-50%);
+
+    width: 17px;
+    height: 27px;
+
+    background: #ffd438;
+
+    border-radius:
+        50%
+        50%
+        50%
+        50%;
+
+    box-shadow:
+        0 0 10px #ffd438,
+        0 0 25px rgba(255, 205, 40, 0.8);
+
+    cursor: pointer;
+
+    animation:
+        flameAnimation
+        0.6s
+        infinite
+        alternate
+        ease-in-out;
+}
+
+
+.flame::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    width: 7px;
+    height: 15px;
+    background: #fff8ad;
+    border-radius: 50%;
+}
+
+
+@keyframes flameAnimation {
+
+    from {
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(-3deg);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            scale(1.15)
+            rotate(3deg);
+    }
+
+}
+
+
+/* =================================
+   MESSAGE
+================================= */
+
+.message {
+    margin-top: -10px;
+
+    font-family: Georgia, serif;
+    font-style: italic;
+
+    text-shadow:
+        0 3px 8px rgba(0,0,0,0.3);
+
+    animation:
+        messageAppear
+        2s
+        ease
+        1s
+        forwards;
+}
+
+
+/* =================================
+   HORIZONTAL BIRTHDAY MESSAGE
+================================= */
+
+.message .birthday-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    white-space: nowrap;
+}
+
+
+/* Happy Birthday */
+
+.message .birthday-line span:first-child {
+    font-size: clamp(35px, 6vw, 65px);
+    color: #ffb0c7;
+}
+
+
+/* Bebe */
+
+.message .birthday-line span:last-child {
+    display: inline;
+    margin-top: 0;
+
+    font-size: clamp(25px, 4vw, 40px);
+    color: white;
+}
+
+
+/* =================================
+   HINT
+================================= */
+
+.hint {
+    margin-top: 18px;
+
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+
+/* =================================
+   MESSAGE ANIMATION
+================================= */
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =================================
+   LOVE MESSAGE
+================================= */
+
+.love-message {
+    display: none;
+
+    max-width: 650px;
+
+    margin-top: 50px;
+
+    padding: 35px 30px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    color: #8e4d5c;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
+
+    animation:
+        loveAppear
+        1.5s
+        ease
+        forwards;
+}
+
+
+.love-message.show {
+    display: block;
+}
+
+
+.love-message h2 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+
+.love-message p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+
+.heart {
+    font-size: 50px;
+    margin-top: 10px;
+
+    animation:
+        heartBeat
+        1s
+        infinite
+        alternate;
+}
+
+
+@keyframes loveAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes heartBeat {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+
+}
+
+
+/* =================================
+   SCROLL ARROW
+================================= */
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+
+    font-size: 40px;
+
+    animation:
+        arrowMove
+        1s
+        infinite
+        alternate;
+}
+
+
+@keyframes arrowMove {
+
+    from {
+        transform:
+            translateY(0);
+    }
+
+    to {
+        transform:
+            translateY(10px);
+    }
+
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .photo {
+        border-width: 4px;
+    }
+
+
+    .photo1,
+    .photo2,
+    .photo3,
+    .photo4,
+    .photo5,
+    .photo6,
+    .photo7,
+    .photo8 {
+
+        width: 48%;
+        height: 25%;
+    }
+
+
+    .photo1 {
+        top: 0;
+        left: -8%;
+    }
+
+
+    .photo2 {
+        top: -2%;
+        left: 45%;
+    }
+
+
+    .photo3 {
+        top: 23%;
+        right: -8%;
+    }
+
+
+    .photo4 {
+        top: 25%;
+        left: -8%;
+    }
+
+
+    .photo5 {
+        top: 48%;
+        right: -8%;
+    }
+
+
+    .photo6 {
+        bottom: 24%;
+        left: -8%;
+    }
+
+
+    .photo7 {
+        bottom: -3%;
+        left: 45%;
+    }
+
+
+    .photo8 {
+        bottom: -3%;
+        right: -8%;
+    }
+
+
+    .birthday-content {
+        padding-top: 30px;
+    }
+
+
+    .cake-container {
+        transform: scale(0.78);
+        margin-top: -10px;
+        margin-bottom: -35px;
+    }
+
+
+    /* Horizontal message sa cellphone */
+
+    .message .birthday-line {
+        gap: 10px;
+        white-space: nowrap;
+    }
+
+
+    .message .birthday-line span:first-child {
+        font-size: clamp(24px, 8vw, 40px);
+    }
+
+
+    .message .birthday-line span:last-child {
+        font-size: clamp(20px, 6vw, 32px);
+    }
+
+
+    .love-message {
+        margin: 30px 15px 0;
+        padding: 25px 20px;
+    }
+
+
+    .love-message h2 {
+        font-size: 27px;
+    }
+
+
+    .love-message p {
+        font-size: 15px;
+    }
+
+}
